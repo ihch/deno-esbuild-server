@@ -1,4 +1,12 @@
 import { serve } from "./deps.ts";
+import { esbuild } from "./deps.ts";
+
+const result = await esbuild.build({
+  entryPoints: ["./hoge.ts"],
+  bundle: true,
+  outdir: "./build",
+});
+console.log("result", result);
 
 const server = serve({ hostname: "0.0.0.0", port: 8080 });
 console.log("HTTP server running. Acces it at: http://localhost:8080/");
